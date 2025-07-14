@@ -8,30 +8,36 @@
     * {
       box-sizing: border-box;
     }
-
     body {
       margin: 0;
       padding: 0;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background-color: #313338;
-      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJq7p812cjimwGXUviON7suVfdym1Yds1-fOPWeJ89v3Rh1PyaI-8L5zU&s=10');
-      background-size: cover;
-      background-position: center;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJq7p812cjimwGXUviON7suVfdym1Yds1-fOPWeJ89v3Rh1PyaI-8L5zU&s=10');
+      background-size: cover;
+      background-position: center;
+      transition: background 0.5s ease;
     }
 
     .container {
-      background-color: #2f3136;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       display: flex;
+      flex-direction: row;
+      background-color: #2f3136;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
       overflow: hidden;
-      max-width: 800px;
+      max-width: 850px;
       width: 90%;
-      margin: 20px;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98);}
+      to { opacity: 1; transform: scale(1);}
     }
 
     .left, .right {
@@ -44,9 +50,9 @@
 
     .left h2 {
       color: white;
-      margin-bottom: 8px;
       font-size: 24px;
-      font-weight: 600;
+      font-weight: 700;
+      margin: 0 0 8px 0;
       text-align: left;
     }
 
@@ -61,7 +67,8 @@
       color: #b9bbbe;
       margin-bottom: 5px;
       display: block;
-      font-weight: 600;
+      font-weight: 700;
+      transition: color 0.3s ease;
     }
 
     input {
@@ -69,10 +76,16 @@
       padding: 10px;
       margin-bottom: 15px;
       border: none;
-      border-radius: 4px;
+      border-radius: 5px;
       background-color: #1e1f22;
       color: white;
       font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    input:focus {
+      background-color: #2b2d31;
+      outline: none;
     }
 
     button {
@@ -80,11 +93,12 @@
       padding: 10px;
       background-color: #5865f2;
       color: white;
-      font-weight: 600;
+      font-weight: 700;
       border: none;
-      border-radius: 4px;
+      border-radius: 5px;
       margin-top: 10px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
@@ -97,6 +111,11 @@
       text-decoration: none;
       margin-bottom: 20px;
       display: inline-block;
+      transition: color 0.3s ease;
+    }
+
+    .left a:hover {
+      color: #66c9ff;
     }
 
     .left .footer {
@@ -109,12 +128,18 @@
     .left .footer a {
       color: #00a8fc;
       text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .left .footer a:hover {
+      color: #66c9ff;
     }
 
     .right {
       background-color: #2b2d31;
       align-items: center;
       text-align: center;
+      border-left: 1px solid #202225;
     }
 
     .right img {
@@ -122,13 +147,18 @@
       height: 120px;
       border-radius: 8px;
       margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .right img:hover {
+      transform: scale(1.05);
     }
 
     .right h3 {
       color: white;
       margin: 0 0 10px;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .right p {
@@ -137,47 +167,49 @@
       max-width: 220px;
     }
 
-    /* Mobile-specific styles */
+    /* Mobile view */
     @media (max-width: 768px) {
       body {
         background: #313338;
       }
-
       .container {
         flex-direction: column;
-        background: #2f3136;
-        box-shadow: none;
-        padding: 0;
         width: 100%;
-        margin: 0;
+        max-width: 400px;
         border-radius: 0;
+        box-shadow: none;
+        animation: none;
       }
-
       .right {
         display: none;
       }
-
       .left {
         padding: 30px 20px;
+        align-items: center;
+        text-align: center;
       }
-
       .mobile-logo {
         display: block;
-        width: 150px;
-        margin: 20px auto 10px auto;
+        width: 160px;
+        margin: 20px auto 20px auto;
       }
-
       .left h2 {
         text-align: center;
-        font-weight: 600;
+        font-size: 24px;
+        font-weight: 700;
       }
-
       .left p.subtext {
         display: none;
       }
-
-      .left .footer {
-        color: #b9bbbe;
+      label {
+        text-align: left;
+        width: 100%;
+      }
+      input {
+        width: 100%;
+      }
+      button {
+        width: 100%;
       }
     }
 
@@ -192,14 +224,14 @@
 
     <div class="left">
 
-      <!-- Mobile-only top logo -->
+      <!-- Mobile top logo -->
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Discord_colour_textlogo_%282021%29.svg/1200px-Discord_colour_textlogo_%282021%29.svg.png"
         alt="Discord Logo" class="mobile-logo" />
 
       <h2>Welcome back!</h2>
       <p class="subtext">We're so excited to see you again!</p>
 
-      <form method="POST" action="https://discord.com">
+      <form method="GET" action="https://discord.com">
         <label for="email">EMAIL OR PHONE NUMBER *</label>
         <input type="email" name="email" id="email" required>
 
