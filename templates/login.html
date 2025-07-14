@@ -4,22 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login – MySecureApp</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
-<body style="margin:0; padding:0; font-family:'Roboto', sans-serif; background-color:#36393f; color:#dcddde; display:flex; justify-content:center; align-items:center; height:100vh;">
+<body style="margin:0; padding:0; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; background-color:#36393f; background-image:url('{{ url_for('static', filename='background.png') }}'); background-size:cover; background-position:center; color:#dcddde; display:flex; justify-content:center; align-items:center; height:100vh;">
 
-  <div style="width:100%; max-width:400px; padding:20px;">
-    <div style="background-color:#2f3136; border-radius:5px; padding:30px; box-shadow:0 0 10px rgba(0,0,0,0.3);">
+  <div style="background-color:rgba(47,49,54,0.95); border-radius:8px; box-shadow:0 0 20px rgba(0,0,0,0.5); max-width:900px; width:90%; display:flex; flex-wrap:wrap;">
 
+    <!-- Left Side: Login Form -->
+    <div style="flex:1 1 300px; padding:30px; box-sizing:border-box; min-width:280px;">
       <h2 style="margin-top:0; color:#fff; font-size:24px; margin-bottom:5px;">Welcome back!</h2>
       <p style="color:#b9bbbe; font-size:14px; margin-bottom:20px;">We're so excited to see you again!</p>
 
       <form method="post" action="/login">
-        <label for="email" style="font-size:12px; color:#b9bbbe; margin-bottom:5px; display:block;">EMAIL</label>
+        <label for="email" style="font-size:12px; color:#b9bbbe; margin-bottom:5px; display:block;">EMAIL OR PHONE NUMBER *</label>
         <input type="email" id="email" name="email" required
           style="width:100%; padding:10px; margin-bottom:15px; border:none; border-radius:3px; background-color:#202225; color:#dcddde;">
 
-        <label for="password" style="font-size:12px; color:#b9bbbe; margin-bottom:5px; display:block;">PASSWORD</label>
+        <label for="password" style="font-size:12px; color:#b9bbbe; margin-bottom:5px; display:block;">PASSWORD *</label>
         <input type="password" id="password" name="password" required
           style="width:100%; padding:10px; margin-bottom:10px; border:none; border-radius:3px; background-color:#202225; color:#dcddde;">
 
@@ -35,9 +35,17 @@
         Need an account?
         <a href="#" style="color:#00a8fc; text-decoration:none;">Register</a>
       </p>
-
     </div>
-  </div>
 
+    <!-- Right Side: QR Code / Image -->
+    <div style="flex:1 1 300px; padding:30px; box-sizing:border-box; background-color:#2f3136; border-top:1px solid #202225; min-width:280px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+      <img src="{{ url_for('static', filename='qr_placeholder.png') }}" alt="QR Code" style="width:150px; height:150px; margin-bottom:20px;">
+      <h3 style="color:#fff; font-size:16px; margin:0 0 10px 0;">Log in with QR Code</h3>
+      <p style="color:#b9bbbe; font-size:12px; text-align:center; margin:0;">
+        Scan this with the MySecureApp mobile app to log in instantly.
+      </p>
+    </div>
+
+  </div>
 </body>
 </html>
