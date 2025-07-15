@@ -17,10 +17,14 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIIiymYqouutlg3cOMoSVzjNBN_1Bdw2yAbIZo--glotu4MZx3gzMIsdm6&s=10');
+      transition: background 0.5s ease;
+    }
+
+    body.pc-background {
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJq7p812cjimwGXUviON7suVfdym1Yds1-fOPWeJ89v3Rh1PyaI-8L5zU&s=10');
       background-size: cover;
       background-position: center;
-      transition: background 0.5s ease;
+      background-repeat: no-repeat;
     }
 
     .container {
@@ -190,7 +194,7 @@
       }
       .mobile-logo {
         display: block;
-        width: 160px;
+        width: 150px;
         margin: 20px auto 20px auto;
       }
       .left h2 {
@@ -218,15 +222,15 @@
     }
   </style>
 </head>
-<body>
+<body class="pc-background">
 
   <div class="container">
 
     <div class="left">
 
-      <!-- Mobile top logo -->
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Discord_colour_textlogo_%282021%29.svg/1200px-Discord_colour_textlogo_%282021%29.svg.png"
-        alt="Discord Logo" class="mobile-logo" />
+      <!-- Mobile top logo (shows only on mobile) -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Discord_White_Text_Logo_%282015-2021%29.svg/2560px-Discord_White_Text_Logo_%282015-2021%29.svg.png"
+        alt="Discord White Logo" class="mobile-logo" />
 
       <h2>Welcome back!</h2>
       <p class="subtext">We're so excited to see you again!</p>
