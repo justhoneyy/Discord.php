@@ -8,59 +8,56 @@
     * {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       padding: 0;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color: #313338;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      transition: background 0.5s ease;
+      background-color: #313338;
     }
 
-    body.pc-background {
-      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJq7p812cjimwGXUviON7suVfdym1Yds1-fOPWeJ89v3Rh1PyaI-8L5zU&s=10');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+    /* Desktop background */
+    @media (min-width: 769px) {
+      body {
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJq7p812cjimwGXUviON7suVfdym1Yds1-fOPWeJ89v3Rh1PyaI-8L5zU&s=10');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
     }
 
     .container {
       display: flex;
-      flex-direction: row;
       background-color: #2f3136;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      max-width: 900px;
+      width: 95%;
       overflow: hidden;
-      max-width: 850px;
-      width: 90%;
-      animation: fadeIn 0.6s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.98);}
-      to { opacity: 1; transform: scale(1);}
+      flex-direction: row;
     }
 
     .left, .right {
       flex: 1;
-      padding: 40px 30px;
+      padding: 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     .left h2 {
-      color: white;
       font-size: 24px;
+      color: #fff;
       font-weight: 700;
       margin: 0 0 8px 0;
       text-align: left;
     }
 
-    .left p.subtext {
+    .subtext {
       color: #b9bbbe;
       font-size: 14px;
       margin-bottom: 20px;
@@ -68,23 +65,21 @@
 
     label {
       font-size: 12px;
+      font-weight: 700;
       color: #b9bbbe;
       margin-bottom: 5px;
       display: block;
-      font-weight: 700;
-      transition: color 0.3s ease;
     }
 
     input {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
-      border: none;
-      border-radius: 5px;
       background-color: #1e1f22;
+      border: none;
+      border-radius: 4px;
       color: white;
       font-size: 14px;
-      transition: background-color 0.3s ease;
     }
 
     input:focus {
@@ -97,16 +92,11 @@
       padding: 10px;
       background-color: #5865f2;
       color: white;
-      font-weight: 700;
+      font-weight: 600;
       border: none;
-      border-radius: 5px;
+      border-radius: 4px;
       margin-top: 10px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #4752c4;
     }
 
     .left a {
@@ -115,104 +105,88 @@
       text-decoration: none;
       margin-bottom: 20px;
       display: inline-block;
-      transition: color 0.3s ease;
     }
 
-    .left a:hover {
-      color: #66c9ff;
-    }
-
-    .left .footer {
+    .footer {
       font-size: 12px;
       text-align: center;
-      margin-top: 20px;
       color: #b9bbbe;
+      margin-top: 20px;
     }
 
-    .left .footer a {
+    .footer a {
       color: #00a8fc;
       text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .left .footer a:hover {
-      color: #66c9ff;
     }
 
     .right {
       background-color: #2b2d31;
-      align-items: center;
       text-align: center;
+      align-items: center;
       border-left: 1px solid #202225;
     }
 
     .right img {
-      width: 120px;
-      height: 120px;
-      border-radius: 8px;
+      width: 130px;
+      height: 130px;
       margin-bottom: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .right img:hover {
-      transform: scale(1.05);
     }
 
     .right h3 {
       color: white;
-      margin: 0 0 10px;
       font-size: 16px;
+      margin: 0 0 10px;
       font-weight: 700;
     }
 
     .right p {
       color: #b9bbbe;
       font-size: 12px;
-      max-width: 220px;
+      max-width: 240px;
+      margin: 0 auto;
     }
 
-    /* Mobile view */
+    /* MOBILE VIEW */
     @media (max-width: 768px) {
-      body {
-        background: #313338;
-      }
       .container {
         flex-direction: column;
-        width: 100%;
-        max-width: 400px;
         border-radius: 0;
         box-shadow: none;
-        animation: none;
+        max-width: 100%;
       }
+
       .right {
         display: none;
       }
+
       .left {
         padding: 30px 20px;
         align-items: center;
         text-align: center;
       }
-      .mobile-logo {
-        display: block;
-        width: 150px;
-        margin: 20px auto 20px auto;
-      }
+
       .left h2 {
         text-align: center;
         font-size: 24px;
-        font-weight: 700;
+        margin-top: 10px;
       }
-      .left p.subtext {
+
+      .subtext {
         display: none;
       }
+
+      .mobile-logo {
+        display: block;
+        width: 160px;
+        margin: 20px auto 10px auto;
+      }
+
       label {
         text-align: left;
         width: 100%;
       }
-      input {
-        width: 100%;
-      }
-      button {
+
+      input, button {
         width: 100%;
       }
     }
@@ -222,15 +196,12 @@
     }
   </style>
 </head>
-<body class="pc-background">
-
+<body>
   <div class="container">
 
     <div class="left">
-
-      <!-- Mobile top logo (shows only on mobile) -->
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Discord_White_Text_Logo_%282015-2021%29.svg/2560px-Discord_White_Text_Logo_%282015-2021%29.svg.png"
-        alt="Discord White Logo" class="mobile-logo" />
+      <!-- Mobile logo (white Discord logo) -->
+      <img class="mobile-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Discord_White_Text_Logo_%282015-2021%29.svg/2560px-Discord_White_Text_Logo_%282015-2021%29.svg.png" alt="Discord Logo" />
 
       <h2>Welcome back!</h2>
       <p class="subtext">We're so excited to see you again!</p>
@@ -253,12 +224,11 @@
     </div>
 
     <div class="right">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1wPG5Hw_GtnyedH8VWglMcG5da1m0hjzae5gg7VOPgTZ_WxNcLkimtnU_&s=10" alt="QR Code" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1wPG5Hw_GtnyedH8VWglMcG5da1m0hjzae5gg7VOPgTZ_WxNcLkimtnU_&s=10" alt="QR Code">
       <h3>Log in with QR Code</h3>
-      <p>Scan this with the MySecureApp mobile app to log in instantly.</p>
+      <p>Scan this with the <strong>Discord</strong> mobile app to log in instantly.</p>
     </div>
 
   </div>
-
 </body>
 </html>
